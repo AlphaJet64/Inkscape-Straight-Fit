@@ -1,16 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
   <name>Straight Fit</name>
-  <id>AlphaJet64.Straight_Fit</id>
- <!----> <icon>Straight_Fit.svg</icon>
+  <id>org.alphajet64.Straight_Fit</id>
 
-  <effect>
-    <effects-menu><submenu name="Raster"></submenu></effects-menu>
-    <object-type>image</object-type>
-    <object-type>path</object-type>
-    <menu-tip>Adjust the quadrilateral portion of an image to fit the page by straightening it. [Select an image and a quadrilateral]</menu-tip>
-  </effect>
-  <script>
-     <command interpreter="python" reldir="extensions">Straight_Fit.py</command>
-  </script>
+<!-- <param name="orientation" type="optiongroup" appearance="radio" gui-hidden="true" gui-text="Page Orientation"> -->
+<label>Straighten an image by a path to fit the sheet</label>
+<label>After selecting an image and the path</label>
+<param name="orientation" type="optiongroup" appearance="radio" gui-text="Choose the page orientation: ">
+  <option value="1" default="true">↑ top</option>
+  <option value="2">→ right</option>
+  <option value="3">↓ bottom</option>
+  <option value="4">← left</option>
+</param>
+
+<effect>
+  <object-type>image</object-type>
+  <object-type>path</object-type>
+  <effects-menu>
+    <submenu name="Raster"></submenu>
+  </effects-menu>
+  <menu-tip>Straightening to the sheet. [Select an image and a quadrilateral]</menu-tip>
+</effect>
+<script>
+  <command location="inx" interpreter="python">Straight_Fit.py</command>
+</script>
 </inkscape-extension>
+
 
